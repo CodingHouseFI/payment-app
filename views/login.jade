@@ -1,0 +1,18 @@
+extends ./layout
+
+block css
+  link(href='css/style.css', rel='stylesheet')
+
+block content
+  .container
+    div
+      .form-group
+        label(for='username') Username
+        input#username.form-control(type='text', placeholder='Username')
+      .form-group
+        label(for='pw') Password
+        input#pw.form-control(type='password', placeholder='Password')
+      button.btn.btn-default#login Login
+
+block js
+  script(src='js/login.js')

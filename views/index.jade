@@ -1,0 +1,21 @@
+extends ./layout
+
+block css
+  link(href='css/style.css', rel='stylesheet')
+
+block content
+  .container
+    br
+    .jumbotron
+      h1 Hey!
+      form(action='', method='POST')
+        script.stripe-button(
+          src='https://checkout.stripe.com/checkout.js',
+          data-key='pk_test_HJNWPlajghxupBJagvAGHsAJ',
+          data-amount='3999',
+          data-name='Demo Site',
+          data-description='1 fancy clog ($39.99)',
+          data-locale='auto')
+
+block js
+  script(src='js/main.js')

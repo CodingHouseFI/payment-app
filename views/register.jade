@@ -1,0 +1,21 @@
+extends ./layout
+
+block css
+  link(href='css/style.css', rel='stylesheet')
+
+block content
+  .container
+    div
+      .form-group
+        label(for='username') Username
+        input#username.form-control(type='text', placeholder='Username')
+      .form-group
+        label(for='pw1') Password
+        input#pw1.form-control(type='password', placeholder='Password')
+      .form-group
+        label(for='pw2') Password
+        input#pw2.form-control(type='password', placeholder='Password (again)')
+      button.btn.btn-default#register Register
+
+block js
+  script(src='js/register.js')

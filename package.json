@@ -1,0 +1,28 @@
+{
+  "name": "expresstest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower i",
+    "setup": "rm -rf node_modules public/vendor && npm i && bower i"
+  },
+  "engines": {
+    "node": "5.0.0"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.5",
+    "cookie-parser": "^1.4.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "jwt-simple": "^0.4.0",
+    "mongoose": "^4.3.0",
+    "morgan": "^1.6.1"
+  }
+}

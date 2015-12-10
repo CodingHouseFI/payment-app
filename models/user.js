@@ -8,7 +8,7 @@ var jwt = require('jwt-simple');
 var User;
 
 var userSchema = Schema({
-  username: { type: String, required: true, unique: true },
+  username: { type: String, required: true },
   password: { type: String, required: true }
 });
 
@@ -33,9 +33,15 @@ userSchema.statics.register = function(user, cb) {
         var newUser = new User();
         newUser.username = username;
         newUser.password = hash;
+        console.log('newUser:', newUser);
         newUser.save(function(err, savedUser){
-          savedUser.password = null;
-          cb(err, savedUser);
+          if(err) {
+            console.log('error:', err);
+            cb(err)
+          } else {
+            savedUser.password = null;
+            cb(null, savedUser);
+          }
         });
       });
     });

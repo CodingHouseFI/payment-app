@@ -8,6 +8,7 @@ var User = require('../models/user');
 // USERS
 
 router.post('/register', function(req, res) {
+  console.log('req.body:', req.body)
   User.register(req.body, function(err, user){
     res.status(err || !user ? 400 : 200).send(err || {token: user.token()});
   });

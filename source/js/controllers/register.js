@@ -2,14 +2,14 @@
 
 var app = angular.module('paymentApp');
 
-app.controller('registerCtrl', function($scope, $state, User) {
+app.controller('registerCtrl', function($scope, $state, UserService) {
 
   $scope.submit = function(user) {
     if(user.password !== user.password2){
       swal('Error:', 'Passwords do not match.', 'error');
       return;
     }
-    User.register(user)
+    UserService.register(user)
     .then(function(data){
       $scope.$storage.myToken = res.data.token;
       $state.go('home');

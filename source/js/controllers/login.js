@@ -2,9 +2,9 @@
 
 var app = angular.module('paymentApp');
 
-app.controller('loginCtrl', function($scope, $state, $localStorage, User) {
+app.controller('loginCtrl', function($scope, $state, $localStorage, UserService) {
   $scope.submit = function(user) {
-    User.login(user)
+    UserService.login(user)
     .then(function(res){
       debugger;
       $scope.$storage.myToken = res.data.token;

@@ -26,11 +26,11 @@ app.use(express.static('public'));
 
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
+app.use('/books', require('./routes/books'));
 
 app.use('/turtles', function(req, res) {
   res.send('TURTLES');
 });
-
 
 app.use(function(req, res){
   res.status(404).render('404')

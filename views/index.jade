@@ -17,6 +17,8 @@ html(lang='en')
         #nav-collapse.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
+              a(ui-sref='books.index')#booksLink Books
+            li
               a(ui-sref='register')#registerLink Register
             li
               a(ui-sref='login')#loginLink Login
@@ -31,8 +33,4 @@ html(lang='en')
     script(src='/vendor/ngstorage/ngStorage.min.js')
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
     script(src='/vendor/sweetalert/dist/sweetalert.min.js')
-    script(src='/js/module.js')
-    script(src='/js/models/user.js')
-    script(src='/js/controllers/nav.js')
-    script(src='/js/controllers/register.js')
-    script(src='/js/controllers/login.js')
+    script(src='/bundle.js')

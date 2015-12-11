@@ -22,6 +22,8 @@
     "font-awesome": "~4.5.0",
     "angular": "~1.4.8",
     "ngstorage": "~0.3.10",
-    "angular-ui-router": "ui-router#~0.2.15"
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angular-stripe": "~4.2.8",
+    "angular-stripe-checkout": "~4.0.0"
   }
 }

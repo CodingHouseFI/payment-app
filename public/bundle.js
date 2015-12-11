@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('paymentApp', ['ui.router', 'ngStorage']);
+var app = angular.module('paymentApp', ['ui.router', 'ngStorage', "stripe.checkout"]);
 
 app.constant('ENV', {
   API_URL: 'http://localhost:3000'
@@ -21,6 +21,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('books', { url: '/books', templateUrl: 'templates/books/layout.html', abstract: true })
     .state('books.index', { url: '/', templateUrl: 'templates/books/booksIndex.html', controller: 'booksIndexCtrl'})
     .state('books.show', { url: '/{bookId}', templateUrl: 'templates/books/booksShow.html', controller: 'booksShowCtrl'})
+
 });
 
 'use strict';
@@ -118,9 +119,26 @@ app.controller('booksIndexCtrl', function($scope, $state, BookService) {
 
 var app = angular.module('paymentApp');
 
-app.controller('booksShowCtrl', function($scope, $state, BookService) {
+app.controller('booksShowCtrl', function($scope, $state, $http, ENV, BookService) {
   BookService.show($state.params.bookId)
   .then(function(res) {
     $scope.book = res.data;
   });
+
+  $scope.doCheckout = function(tokenObj) {
+    $http.post(`${ENV.API_URL}/checkout`, {
+      tokenObj: tokenObj,
+      book: $scope.book
+    })
+    .then(function(res) {
+      console.log('res:', res);
+    }, function(err) {
+      console.log('err:', err);
+    })
+  };
+
+  $scope.formatPrice = function(num) {
+    return Math.round(num * 100);
+  };
 });
+

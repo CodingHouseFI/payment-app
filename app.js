@@ -27,6 +27,7 @@ app.use(express.static('public'));
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/books', require('./routes/books'));
+app.use('/checkout', require('./routes/checkout'));
 
 app.use('/turtles', function(req, res) {
   res.send('TURTLES');

@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('paymentApp', ['ui.router', 'ngStorage']);
+var app = angular.module('paymentApp', ['ui.router', 'ngStorage', "stripe.checkout"]);
 
 app.constant('ENV', {
   API_URL: 'http://localhost:3000'
@@ -21,4 +21,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('books', { url: '/books', templateUrl: 'templates/books/layout.html', abstract: true })
     .state('books.index', { url: '/', templateUrl: 'templates/books/booksIndex.html', controller: 'booksIndexCtrl'})
     .state('books.show', { url: '/{bookId}', templateUrl: 'templates/books/booksShow.html', controller: 'booksShowCtrl'})
+
 });
